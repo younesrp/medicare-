@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suivi Santé - MediCare+</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="transition-colors duration-500">
+<nav id="navbar" class="bg-white shadow-sm transition-colors duration-500 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">MédiCare+</div>
+    <div class="hidden md:flex space-x-8">
+      <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">Accueil</a>
+      <a href="med.html" class="text-gray-600 hover:text-blue-600 transition-colors">Médecins</a>
+      <a href="rendez-vous.html" class="text-gray-600 hover:text-blue-600 transition-colors">Rendez-vous</a>
+      <a href="suivi.html" class="text-blue-600 font-semibold">Suivie Santé</a>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div id="toggleDark" class="w-16 h-8 bg-gradient-to-r from-yellow-300 to-blue-500 rounded-full relative cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg">
+        <div id="toggleThumb" class="w-7 h-7 bg-white rounded-full absolute top-0.5 left-0.5 flex items-center justify-center text-sm transition-transform duration-300 shadow-md">☀️</div>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden text-blue-600 text-2xl">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-2">
+    <a href="index.html" class="block text-gray-600 hover:text-blue-600 py-2">Accueil</a>
+    <a href="med.html" class="block text-gray-600 hover:text-blue-600 py-2">Médecins</a>
+    <a href="rendez-vous.html" class="block text-gray-600 hover:text-blue-600 py-2">Rendez-vous</a>
+    <a href="suivi.html" class="block text-blue-600 font-semibold py-2">Suivi Santé</a>
+  </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-6 py-12 space-y-12">
+
+  <div id="heroSection" class="rounded-3xl shadow-2xl overflow-hidden transition-all duration-500 p-12 text-center" style="background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);">
+    <div class="text-8xl mb-6">📊</div>
+    <h1 class="text-5xl font-bold mb-4 text-blue-900">Suivi Santé</h1>
+    <p class="text-xl text-blue-800">Suivez vos indicateurs de santé au quotidien</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div id="globalStats" class="metric-card rounded-2xl p-8 text-center shadow-xl">
+      <div class="text-6xl mb-4">⚖️</div>
+      <h3 class="text-2xl font-bold text-blue-900 mb-2">Poids Moyen</h3>
+      <p id="avgWeight" class="text-4xl font-bold text-blue-600 stat-badge">-</p>
+      <p class="text-blue-700 mt-2">kg</p>
+    </div>
+
+    <div id="globalStats2" class="metric-card rounded-2xl p-8 text-center shadow-xl">
+      <div class="text-6xl mb-4">❤️</div>
+      <h3 class="text-2xl font-bold text-blue-900 mb-2">Tension Moyenne</h3>
+      <p id="avgPressure" class="text-4xl font-bold text-blue-600 stat-badge">-</p>
+      <p class="text-blue-700 mt-2">mmHg</p>
+    </div>
+
+    <div id="globalStats3" class="metric-card rounded-2xl p-8 text-center shadow-xl">
+      <div class="text-6xl mb-4">🩸</div>
+      <h3 class="text-2xl font-bold text-blue-900 mb-2">Glycémie Moyenne</h3>
+      <p id="avgGlucose" class="text-4xl font-bold text-blue-600 stat-badge">-</p>
+      <p class="text-blue-700 mt-2">g/L</p>
+    </div>
+  </div>
+
+  <div id="healthIndicator" class="metric-card rounded-2xl p-8 shadow-xl text-center">
+    <h3 class="text-2xl font-bold text-blue-900 mb-6">🎯 Indicateur de Santé Global</h3>
+    <div class="flex items-center justify-center gap-8">
+      <div class="w-32 h-32 rounded-full flex items-center justify-center text-5xl shadow-2xl" id="healthIcon">😊</div>
+      <div class="text-left">
+        <p id="healthStatus" class="text-3xl font-bold mb-2">Bon état</p>
+        <p id="healthMessage" class="text-blue-700 text-lg">Continuez vos bonnes habitudes !</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-8">
+    
+    <div id="formSection" class="rounded-2xl p-8 shadow-xl bg-white/90 backdrop-blur-sm transition-colors duration-500">
+      <h2 class="text-3xl font-bold mb-6 text-blue-900">➕ Ajouter une Mesure</h2>
+      <form id="healthForm" class="space-y-6">
+        <div>
+          <label class="block text-blue-900 font-semibold mb-2">Date</label>
+          <input type="date" id="date" class="w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all">
+        </div>
+        <div>
+          <label class="block text-blue-900 font-semibold mb-2">Poids (kg)</label>
+          <input type="number" step="0.1" id="weight" class="w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all" placeholder="Ex: 70.5">
+        </div>
+        <div>
+          <label class="block text-blue-900 font-semibold mb-2">Tension (systolique/diastolique)</label>
+          <div class="grid grid-cols-2 gap-4">
+            <input type="number" id="systolic" class="w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all" placeholder="120">
+            <input type="number" id="diastolic" class="w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all" placeholder="80">
+          </div>
+        </div>
+        <div>
+          <label class="block text-blue-900 font-semibold mb-2">Glycémie (g/L)</label>
+          <input type="number" step="0.01" id="glucose" class="w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all" placeholder="Ex: 1.05">
+        </div>
+        <div>
+          <label class="block text-blue-900 font-semibold mb-2">Notes</label>
+          <textarea id="notes" rows="2" class="w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 focus:outline-none transition-all" placeholder="Remarques ou observations..."></textarea>
+        </div>
+        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          ✓ Enregistrer la Mesure
+        </button>
+      </form>
+    </div>
+
+    <div>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-bold text-blue-900">📋 Historique</h2>
+        <span id="measureCount" class="bg-blue-500 text-white px-4 py-2 rounded-full font-bold shadow-lg">0</span>
+      </div>
+      <div id="measuresList" class="space-y-4 max-h-[600px] overflow-y-auto"></div>
+      <div id="emptyState" class="metric-card rounded-2xl p-8 text-center">
+        <div class="text-6xl mb-4">📭</div>
+        <p class="text-blue-700 text-lg">Aucune mesure enregistrée</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer id="footer" class="mt-16 p-8 text-center transition-colors duration-500 bg-sky-50">
+  <p class="text-blue-800">© 2025 MediCare+. Tous droits réservés.</p>
+</footer>
+
+<script src="../asstets/js/suivi.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicare+</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="transition-colors duration-500">
+
+<nav id="navbar" class="bg-white shadow-sm transition-colors duration-500 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">MédiCare+</div>
+    <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="text-blue-600 font-semibold">Accueil</a>
+      <a href="med.html" class="text-gray-600 hover:text-blue-600 transition-colors">Médecins</a>
+    
+      <a href="rendez-vous.html" class="text-gray-600 hover:text-blue-600 transition-colors">Rendez-vous</a>
+      <a href="suivi.html" class="text-gray-600 hover:text-blue-600 transition-colors">Suivi Santé</a>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div id="toggleDark" class="w-16 h-8 bg-gradient-to-r from-yellow-300 to-blue-500 rounded-full relative cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg">
+        <div id="toggleThumb" class="w-7 h-7 bg-white rounded-full absolute top-0.5 left-0.5 flex items-center justify-center text-sm transition-transform duration-300 shadow-md">☀️</div>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden text-blue-600 text-2xl">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-2">
+    <a href="index.html" class="block text-blue-600 font-semibold py-2">Accueil</a>
+    <a href="med.html" class="block text-gray-600 hover:text-blue-600 py-2">Médecins</a>
+    <a href="rendez-vous.html" class="block text-gray-600 hover:text-blue-600 py-2">Rendez-vous</a>
+    <a href="suivi.html" class="block text-gray-600 hover:text-blue-600 py-2">Suivi Santé</a>
+  </div>
+</nav>
+
+<div class="max-w-6xl mx-auto p-6 space-y-8">
+
+<div id="carousel" class="rounded-xl shadow-lg overflow-hidden transition-colors transition-opacity duration-500 bg-blue-200 p-8 text-center opacity-100">
+  <div id="carouselIcon" class="text-6xl mb-4">💧</div>
+  <h2 id="carouselTitle" class="text-3xl mb-4 text-blue-800">Hydratation</h2>
+  <p id="carouselContentText" class="text-blue-700 mb-4">Buvez 8 verres d'eau par jour.</p>
+  <div id="carouselIndicators" class="flex gap-2 justify-center mb-4"></div>
+  <div class="flex justify-between">
+    <button id="prevTip" class="px-4 py-2 bg-blue-100 rounded hover:bg-blue-200">◀</button>
+    <button id="nextTip" class="px-4 py-2 bg-blue-100 rounded hover:bg-blue-200">▶</button>
+  </div>
+</div>
+
+  <div id="searchBar" class="rounded-xl p-4 shadow-md bg-white transition-colors duration-500">
+    <input id="searchInput" type="text" placeholder="Rechercher des articles..." class="w-full p-3 rounded border border-blue-200 focus:outline-none focus:border-blue-400">
+  </div>
+
+  <div>
+    <h2 class="text-2xl mb-4 text-blue-800">Articles de Santé</h2>
+    <p id="searchResultCount" class="mb-4 text-blue-700"></p>
+    <div id="articlesGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+
+</div>
+
+<footer id="footer" class="p-6 text-center transition-colors duration-500">
+  © 2025 MediCare+. Tous droits réservés.
+</footer>
+
+<script src="../asstets/js/index.js"></script>
+</body>
+</html>
